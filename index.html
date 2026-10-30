@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#10241d">
+  <title>Apollo Krishi Rakshak | LSTM Decision Support</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="#home" aria-label="Apollo Krishi Rakshak home">
+        <span class="brand-mark">A</span>
+        <span><strong>Apollo</strong><small>Krishi Rakshak</small></span>
+      </a>
+      <nav class="main-nav" aria-label="Primary navigation">
+        <button class="nav-link active" data-tab="home" data-i18n="navHome">Home</button>
+        <button class="nav-link" data-tab="pest" data-i18n="navPest">Pest Emergence</button>
+        <button class="nav-link" data-tab="rainfall" data-i18n="navRainfall">Rainfall</button>
+        <button class="nav-link" data-tab="drought" data-i18n="navDrought">Drought Risk</button>
+        <button class="nav-link" data-tab="feedback" data-i18n="navFeedback">Feedback</button>
+      </nav>
+      <div class="header-actions">
+        <label class="language-picker" for="languageSelect"><span aria-hidden="true">文</span>
+          <select id="languageSelect" aria-label="Language">
+            <option value="en">English</option>
+            <option value="mr">मराठी</option>
+            <option value="hi">हिन्दी</option>
+          </select>
+        </label>
+        <button class="icon-button" id="themeToggle" aria-label="Toggle contrast">◐</button>
+      </div>
+    </header>
+
+    <main>
+      <section id="home" class="page-section active-section">
+        <div class="hero-grid">
+          <div class="hero-copy">
+            <div class="eyebrow"><span class="status-dot"></span><span data-i18n="eyebrow">DISTRICT-WISE LSTM INTELLIGENCE</span></div>
+            <h1 data-i18n="heroTitle">A calmer way to read the weather before it reaches the field.</h1>
+            <p data-i18n="heroText">Apollo Krishi Rakshak translates seven-day rainfall signals, drought-risk indicators, and pest-emergence conditions into practical next steps for Maharashtra districts.</p>
+            <div class="hero-actions">
+              <button class="primary-button" data-tab="rainfall"><span data-i18n="startForecast">Start a forecast</span><span>↗</span></button>
+              <button class="text-button" data-tab="pest" data-i18n="exploreSignals">Explore risk signals</button>
+            </div>
+            <div class="hero-note"><span class="shield">⌁</span><span data-i18n="heroNote">Built around the Apollo LSTM work archive. Decision support, not a substitute for local agronomy.</span></div>
+          </div>
+          <div class="hero-visual" aria-label="Illustration of climate signal monitoring">
+            <div class="visual-orbit orbit-one"></div><div class="visual-orbit orbit-two"></div>
+            <div class="climate-card climate-card-main"><div class="mini-label" data-i18n="liveSignal">LIVE SIGNAL</div><div class="signal-value">7 <small data-i18n="days">days</small></div><div class="signal-caption" data-i18n="forecastHorizon">forecast horizon</div><div class="wave-chart"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></div>
+            <div class="climate-card climate-card-side"><span class="sun-icon">☼</span><strong>28°</strong><small>Pune · 09:42</small></div>
+            <div class="leaf-illustration">✦</div>
+          </div>
+        </div>
+        <div class="home-stats">
+          <div><strong>36</strong><span data-i18n="districts">Maharashtra districts</span></div>
+          <div><strong>7</strong><span data-i18n="forecastDays">forecast days</span></div>
+          <div><strong>3</strong><span data-i18n="riskSignals">LSTM risk signals</span></div>
+          <div><strong>24/7</strong><span data-i18n="decisionReady">decision-ready view</span></div>
+        </div>
+        <div class="feature-grid">
+          <article class="feature-card tone-green"><span class="feature-icon">◒</span><h3 data-i18n="rainCardTitle">Rainfall prediction</h3><p data-i18n="rainCardText">Read the next seven days day by day, with a plain-language interpretation of the signal.</p><button class="card-link" data-tab="rainfall" data-i18n="openModule">Open module →</button></article>
+          <article class="feature-card tone-amber"><span class="feature-icon">⌁</span><h3 data-i18n="droughtCardTitle">Drought probability</h3><p data-i18n="droughtCardText">See rainfall-deficit pressure relative to a district-aware normal and act earlier.</p><button class="card-link" data-tab="drought" data-i18n="openModule">Open module →</button></article>
+          <article class="feature-card tone-blue"><span class="feature-icon">✧</span><h3 data-i18n="pestCardTitle">Pest emergence</h3><p data-i18n="pestCardText">Review a climate-derived suitability indicator for monitoring and field scouting.</p><button class="card-link" data-tab="pest" data-i18n="openModule">Open module →</button></article>
+        </div>
+      </section>
+
+      <section id="pest" class="page-section module-section">
+        <div class="section-heading"><div><div class="eyebrow">LSTM SIGNAL 03</div><h2 data-i18n="pestTitle">Pest emergence outlook</h2><p data-i18n="pestIntro">A climate-derived indicator combining temperature, humidity, and rainfall balance. Use it to prioritise field scouting.</p></div><span class="module-badge blue" data-i18n="prototypeBadge">PROTOTYPE MODEL VIEW</span></div>
+        <div class="control-panel"><div class="control-field"><label for="pestDistrict" data-i18n="chooseDistrict">Choose district</label><select id="pestDistrict"></select></div><div class="location-actions"><button class="secondary-button" id="pestLocate" data-i18n="useLocation">⌖ Use my location</button><button class="secondary-button" id="pestMaps" data-i18n="openMaps">↗ Google Maps</button></div><button class="primary-button run-button" data-run="pest" data-i18n="runPrediction">Run prediction</button></div>
+        <div id="pestResult" class="result-layout"></div>
+      </section>
+
+      <section id="rainfall" class="page-section module-section">
+        <div class="section-heading"><div><div class="eyebrow">LSTM SIGNAL 01</div><h2 data-i18n="rainTitle">Seven-day rainfall prediction</h2><p data-i18n="rainIntro">A district-wise view of the next seven days. Each card is one forecast day, so planning decisions stay easy to follow.</p></div><span class="module-badge green" data-i18n="sevenDayBadge">7-DAY VIEW</span></div>
+        <div class="control-panel"><div class="control-field"><label for="rainDistrict" data-i18n="chooseDistrict">Choose district</label><select id="rainDistrict"></select></div><div class="location-actions"><button class="secondary-button" id="rainLocate" data-i18n="useLocation">⌖ Use my location</button><button class="secondary-button" id="rainMaps" data-i18n="openMaps">↗ Google Maps</button></div><button class="primary-button run-button" data-run="rainfall" data-i18n="runPrediction">Run prediction</button></div>
+        <div id="rainResult" class="result-layout"></div>
+      </section>
+
+      <section id="drought" class="page-section module-section">
+        <div class="section-heading"><div><div class="eyebrow">LSTM SIGNAL 02</div><h2 data-i18n="droughtTitle">Drought-risk probability</h2><p data-i18n="droughtIntro">A bounded rainfall-deficit indicator that compares recent accumulation with the district's rolling normal.</p></div><span class="module-badge amber" data-i18n="riskBadge">RISK INDICATOR</span></div>
+        <div class="control-panel"><div class="control-field"><label for="droughtDistrict" data-i18n="chooseDistrict">Choose district</label><select id="droughtDistrict"></select></div><div class="location-actions"><button class="secondary-button" id="droughtLocate" data-i18n="useLocation">⌖ Use my location</button><button class="secondary-button" id="droughtMaps" data-i18n="openMaps">↗ Google Maps</button></div><button class="primary-button run-button" data-run="drought" data-i18n="runPrediction">Run prediction</button></div>
+        <div id="droughtResult" class="result-layout"></div>
+      </section>
+
+      <section id="feedback" class="page-section module-section feedback-section">
+        <div class="section-heading"><div><div class="eyebrow">APOLLO LISTENS</div><h2 data-i18n="feedbackTitle">Feedback and voice assistant</h2><p data-i18n="feedbackIntro">Speak or type your district request. Your browser processes voice input locally before using it to select a district.</p></div><span class="module-badge green">BETA</span></div>
+        <div class="feedback-grid"><div class="voice-card"><div class="voice-ring"><span>◉</span></div><h3 data-i18n="voiceTitle">Ask by voice</h3><p id="voiceStatus" data-i18n="voiceReady">Press the microphone and say a Maharashtra district.</p><button class="primary-button" id="voiceButton" data-i18n="startListening">Start listening</button><div class="voice-transcript" id="voiceTranscript"></div></div><form class="feedback-form" id="feedbackForm"><label for="feedbackName" data-i18n="yourName">Your name</label><input id="feedbackName" required placeholder="Anuja"><label for="feedbackText" data-i18n="yourFeedback">Your feedback</label><textarea id="feedbackText" required rows="5" placeholder="Tell us what would make this useful in your field..."></textarea><button class="primary-button" type="submit" data-i18n="sendFeedback">Send feedback</button><p class="form-status" id="feedbackStatus"></p></form></div>
+      </section>
+    </main>
+
+    <footer class="site-footer"><div class="footer-brand"><span class="brand-mark">A</span><div><strong>Apollo Krishi Rakshak</strong><p data-i18n="footerTagline">LSTM decision support for climate-aware agriculture</p></div></div><div class="footer-links"><a href="https://anujagurav.co.in/" target="_blank" rel="noreferrer">Anuja Gurav</a><a href="https://github.com/theeanuja" target="_blank" rel="noreferrer">GitHub</a><a href="https://www.linkedin.com/in/anuja-gurav-940073331" target="_blank" rel="noreferrer">LinkedIn</a><a href="mailto:anujamg23@gmail.com">anujamg23@gmail.com</a></div><div class="footer-note"><strong data-i18n="cofounder">Cofounder, Apollo Continuum</strong><span>+91 7720822005</span></div></footer>
+  </div>
+  <div class="toast" id="toast" role="status"></div>
+  <script src="model_adapter.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
