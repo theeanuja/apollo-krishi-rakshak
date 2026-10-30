@@ -1,5 +1,9 @@
 # Apollo Krishi Rakshak - LSTM Deployment
 
+## Live website
+
+https://theeanuja.github.io/apollo-krishi-rakshak/
+
 This folder contains the browser deployment interface for only the three approved Apollo signals:
 
 1. District-wise seven-day rainfall prediction.
